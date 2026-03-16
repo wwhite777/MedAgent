@@ -1,0 +1,302 @@
+[
+  {
+    "id": "TC-001",
+    "esi_expected": 1,
+    "expected_diagnosis": "ST-elevation myocardial infarction",
+    "vignette": "62-year-old male presents with sudden onset crushing substernal chest pain radiating to the left arm for the past 30 minutes. He is diaphoretic, pale, and appears acutely distressed. Vital signs: HR 110, BP 85/50, RR 24, SpO2 92%, Temp 37.0°C. He is on aspirin 81mg, atorvastatin 40mg, and metformin 1000mg daily. Labs: Troponin 2.4 ng/mL, BNP 850 pg/mL, glucose 245 mg/dL, creatinine 1.1 mg/dL. ECG shows ST elevation in leads II, III, aVF."
+  },
+  {
+    "id": "TC-002",
+    "esi_expected": 1,
+    "expected_diagnosis": "Anaphylaxis",
+    "vignette": "28-year-old female brought in by EMS after developing sudden onset diffuse urticaria, lip and tongue swelling, wheezing, and hypotension approximately 15 minutes after eating shrimp at a restaurant. She has a known shellfish allergy but was unaware of the ingredient. Vital signs: HR 130, BP 70/40, RR 28, SpO2 88%, Temp 37.2°C. No current medications. Labs not yet obtained. She is stridorous and has difficulty speaking."
+  },
+  {
+    "id": "TC-003",
+    "esi_expected": 2,
+    "expected_diagnosis": "Acute ischemic stroke",
+    "vignette": "74-year-old male with history of atrial fibrillation, hypertension, and type 2 diabetes presents with acute onset right-sided weakness and slurred speech that began 2 hours ago. His wife reports he was fine when she saw him at breakfast. Vital signs: HR 88 irregular, BP 178/95, RR 16, SpO2 97%, Temp 36.8°C. Current medications: warfarin 5mg, lisinopril 20mg, metformin 500mg BID. Labs: INR 1.8, glucose 180 mg/dL, creatinine 1.0 mg/dL, sodium 141 mEq/L."
+  },
+  {
+    "id": "TC-004",
+    "esi_expected": 2,
+    "expected_diagnosis": "Diabetic ketoacidosis",
+    "vignette": "19-year-old female with type 1 diabetes presents with 2 days of nausea, vomiting, abdominal pain, and excessive thirst. She ran out of insulin 3 days ago. She appears lethargic and has Kussmaul breathing. Vital signs: HR 120, BP 95/60, RR 28 deep, SpO2 99%, Temp 37.4°C. Medications: insulin glargine 20 units daily (non-compliant), insulin lispro (not available). Labs: glucose 520 mg/dL, sodium 128 mEq/L, potassium 5.8 mEq/L, creatinine 1.6 mg/dL, BUN 32 mg/dL, WBC 15.2 x10^3/uL."
+  },
+  {
+    "id": "TC-005",
+    "esi_expected": 2,
+    "expected_diagnosis": "Pulmonary embolism",
+    "vignette": "45-year-old female presents with sudden onset pleuritic chest pain and dyspnea that started 6 hours ago. She had a total knee replacement 2 weeks ago and has been relatively immobile since. She reports right calf swelling and pain. Vital signs: HR 115, BP 100/65, RR 24, SpO2 91%, Temp 37.6°C. Medications: oxycodone 5mg PRN, enoxaparin 40mg daily (missed last 2 doses). Labs: D-dimer 4200 ng/mL, troponin 0.08 ng/mL, BNP 320 pg/mL."
+  },
+  {
+    "id": "TC-006",
+    "esi_expected": 3,
+    "expected_diagnosis": "Community-acquired pneumonia",
+    "vignette": "55-year-old male with COPD presents with 3 days of productive cough with yellow-green sputum, fever, and increasing dyspnea. He denotes right-sided chest pain that worsens with deep breathing. Vital signs: HR 100, BP 130/80, RR 22, SpO2 93% on room air, Temp 38.9°C. Medications: tiotropium inhaler, albuterol PRN, prednisone 5mg daily. Labs: WBC 16.8 x10^3/uL, creatinine 0.9 mg/dL, lactate 1.8 mmol/L. Chest X-ray shows right lower lobe consolidation."
+  },
+  {
+    "id": "TC-007",
+    "esi_expected": 3,
+    "expected_diagnosis": "Acute appendicitis",
+    "vignette": "22-year-old male presents with 18 hours of periumbilical pain that has migrated to the right lower quadrant. He has had low-grade fever, nausea, and one episode of vomiting. He has no significant medical history. Vital signs: HR 92, BP 125/78, RR 16, SpO2 99%, Temp 38.2°C. No current medications. Labs: WBC 14.5 x10^3/uL, hemoglobin 15.2 g/dL, creatinine 0.8 mg/dL. He has positive McBurney's point tenderness and rebound tenderness."
+  },
+  {
+    "id": "TC-008",
+    "esi_expected": 3,
+    "expected_diagnosis": "Acute cholecystitis",
+    "vignette": "48-year-old obese female presents with 12 hours of severe right upper quadrant pain radiating to the right shoulder, worse after eating a fatty meal. She has nausea and has vomited twice. Positive Murphy's sign on exam. Vital signs: HR 95, BP 140/88, RR 18, SpO2 98%, Temp 38.4°C. Medications: omeprazole 20mg, oral contraceptives. Labs: WBC 13.2 x10^3/uL, ALT 85 U/L, AST 72 U/L, bilirubin total 2.1 mg/dL."
+  },
+  {
+    "id": "TC-009",
+    "esi_expected": 3,
+    "expected_diagnosis": "Cellulitis with suspected abscess",
+    "vignette": "35-year-old male with type 2 diabetes presents with 4 days of progressive redness, warmth, swelling, and pain on his left lower leg following a minor cut. The area has expanded to 12cm x 8cm with central fluctuance. He reports fever and chills. Vital signs: HR 98, BP 128/82, RR 16, SpO2 99%, Temp 38.6°C. Medications: metformin 1000mg BID, lisinopril 10mg. Labs: WBC 15.0 x10^3/uL, glucose 210 mg/dL, creatinine 1.0 mg/dL."
+  },
+  {
+    "id": "TC-010",
+    "esi_expected": 3,
+    "expected_diagnosis": "Atrial fibrillation with rapid ventricular response",
+    "vignette": "68-year-old female presents with 6 hours of palpitations, lightheadedness, and mild dyspnea. She denies chest pain or syncope. She has a history of hypertension and hypothyroidism. Vital signs: HR 148 irregular, BP 110/70, RR 18, SpO2 96%, Temp 36.9°C. Medications: amlodipine 5mg, levothyroxine 75mcg. Labs: potassium 3.8 mEq/L, creatinine 0.9 mg/dL, troponin 0.02 ng/mL, BNP 250 pg/mL. ECG shows atrial fibrillation with RVR."
+  },
+  {
+    "id": "TC-011",
+    "esi_expected": 3,
+    "expected_diagnosis": "Acute pyelonephritis",
+    "vignette": "32-year-old female presents with 2 days of dysuria, urinary frequency, and now flank pain with fever and rigors. She has had recurrent UTIs in the past year. Vital signs: HR 105, BP 118/72, RR 18, SpO2 99%, Temp 39.2°C. Medications: oral contraceptive. Labs: WBC 17.5 x10^3/uL, creatinine 1.1 mg/dL, urinalysis positive for leukocytes, nitrites, and bacteria. CVA tenderness on the right."
+  },
+  {
+    "id": "TC-012",
+    "esi_expected": 3,
+    "expected_diagnosis": "Small bowel obstruction",
+    "vignette": "70-year-old male with history of prior abdominal surgery presents with 24 hours of crampy diffuse abdominal pain, bilious vomiting, abdominal distension, and no bowel movements or flatus. Vital signs: HR 100, BP 115/70, RR 20, SpO2 97%, Temp 37.3°C. Medications: lisinopril 20mg, metoprolol 50mg, aspirin 81mg. Labs: WBC 11.5 x10^3/uL, sodium 138 mEq/L, potassium 3.2 mEq/L, creatinine 1.3 mg/dL, lactate 1.5 mmol/L."
+  },
+  {
+    "id": "TC-013",
+    "esi_expected": 3,
+    "expected_diagnosis": "Acute exacerbation of COPD",
+    "vignette": "65-year-old male with severe COPD (FEV1 35% predicted) presents with 3 days of worsening dyspnea, increased sputum production (now purulent), and wheezing. He has required his rescue inhaler every 2 hours. Vital signs: HR 105, BP 145/85, RR 26, SpO2 88% on room air, Temp 37.8°C. Medications: tiotropium, fluticasone/salmeterol, albuterol, azithromycin (started yesterday by PCP). Labs: WBC 12.0 x10^3/uL, hemoglobin 16.5 g/dL, ABG pH 7.32, pCO2 55."
+  },
+  {
+    "id": "TC-014",
+    "esi_expected": 3,
+    "expected_diagnosis": "Acute pancreatitis",
+    "vignette": "42-year-old male with heavy alcohol use presents with severe epigastric pain radiating to the back for 8 hours. The pain is worse when lying flat and improved when leaning forward. He has been vomiting and is unable to tolerate oral intake. Vital signs: HR 110, BP 108/65, RR 20, SpO2 97%, Temp 37.5°C. No regular medications. Labs: WBC 14.0 x10^3/uL, lipase 1250 U/L, ALT 45 U/L, AST 55 U/L, creatinine 1.2 mg/dL, glucose 185 mg/dL."
+  },
+  {
+    "id": "TC-015",
+    "esi_expected": 3,
+    "expected_diagnosis": "Deep vein thrombosis",
+    "vignette": "38-year-old female on oral contraceptives presents with 3 days of progressive left leg swelling, pain, and warmth. She returned from a 14-hour international flight 5 days ago. She has no chest pain or shortness of breath. Vital signs: HR 82, BP 120/75, RR 16, SpO2 99%, Temp 37.1°C. Medications: combined oral contraceptive pill. Labs: D-dimer 2800 ng/mL. Left calf circumference is 3cm greater than right."
+  },
+  {
+    "id": "TC-016",
+    "esi_expected": 3,
+    "expected_diagnosis": "Acute heart failure exacerbation",
+    "vignette": "72-year-old female with known CHF (EF 30%) presents with 5 days of worsening dyspnea on exertion, orthopnea (now sleeping on 4 pillows), and bilateral lower extremity edema. She admits to eating salty foods over the holidays and missing her diuretic for 3 days. Vital signs: HR 98, BP 155/95, RR 24, SpO2 90% on room air, Temp 36.7°C. Medications: furosemide 40mg, carvedilol 12.5mg, lisinopril 10mg, spironolactone 25mg. Labs: BNP 1850 pg/mL, creatinine 1.8 mg/dL, potassium 5.2 mEq/L, sodium 132 mEq/L."
+  },
+  {
+    "id": "TC-017",
+    "esi_expected": 3,
+    "expected_diagnosis": "GI bleeding - upper",
+    "vignette": "58-year-old male presents with 2 episodes of hematemesis (coffee-ground emesis) and melena over the past 12 hours. He feels lightheaded when standing. History of NSAID use for chronic back pain and H. pylori infection treated 2 years ago. Vital signs: HR 105, BP 100/60 (sitting), 85/55 (standing), RR 18, SpO2 98%, Temp 36.9°C. Medications: ibuprofen 600mg TID, omeprazole 20mg. Labs: hemoglobin 8.5 g/dL, BUN 45 mg/dL, creatinine 1.0 mg/dL, INR 1.0, platelets 210 x10^3/uL."
+  },
+  {
+    "id": "TC-018",
+    "esi_expected": 3,
+    "expected_diagnosis": "Acute kidney injury",
+    "vignette": "66-year-old male with hypertension and type 2 diabetes presents with decreased urine output over the past 2 days, bilateral lower extremity edema, and fatigue. He recently started an NSAID for knee pain. Vital signs: HR 88, BP 165/95, RR 18, SpO2 96%, Temp 37.0°C. Medications: lisinopril 40mg, amlodipine 10mg, metformin 1000mg BID, ibuprofen 400mg TID (new). Labs: creatinine 4.2 mg/dL (baseline 1.2), BUN 68 mg/dL, potassium 5.9 mEq/L, sodium 134 mEq/L, hemoglobin 10.8 g/dL."
+  },
+  {
+    "id": "TC-019",
+    "esi_expected": 3,
+    "expected_diagnosis": "Bacterial meningitis",
+    "vignette": "20-year-old college student presents with 24 hours of severe headache, neck stiffness, photophobia, and fever. His roommate reports he has been increasingly confused over the past few hours. Vital signs: HR 115, BP 105/65, RR 20, SpO2 98%, Temp 39.5°C. No current medications. He has a petechial rash on his trunk and extremities. Labs: WBC 22.0 x10^3/uL, glucose 65 mg/dL, lactate 3.2 mmol/L. Positive Kernig and Brudzinski signs."
+  },
+  {
+    "id": "TC-020",
+    "esi_expected": 3,
+    "expected_diagnosis": "Sepsis secondary to urinary tract infection",
+    "vignette": "78-year-old female nursing home resident with dementia and diabetes presents with altered mental status, fever, and decreased oral intake for 2 days. Staff reports she has been more confused than baseline and has had foul-smelling urine. Vital signs: HR 108, BP 90/55, RR 22, SpO2 95%, Temp 38.8°C. Medications: donepezil 10mg, metformin 500mg, insulin glargine 15 units. Labs: WBC 18.5 x10^3/uL, creatinine 2.1 mg/dL, glucose 310 mg/dL, lactate 3.8 mmol/L, sodium 148 mEq/L."
+  },
+  {
+    "id": "TC-021",
+    "esi_expected": 4,
+    "expected_diagnosis": "Acute viral upper respiratory infection",
+    "vignette": "34-year-old female presents with 3 days of nasal congestion, rhinorrhea, sore throat, and mild cough. She has low-grade fever and body aches. She denies dyspnea or chest pain. Several coworkers have been sick with similar symptoms. Vital signs: HR 78, BP 118/72, RR 16, SpO2 99%, Temp 37.8°C. No current medications. She is asking for a work note."
+  },
+  {
+    "id": "TC-022",
+    "esi_expected": 4,
+    "expected_diagnosis": "Ankle sprain",
+    "vignette": "25-year-old male presents after twisting his right ankle while playing basketball 4 hours ago. He has pain, swelling, and difficulty bearing weight on the right ankle. He denies any popping sensation. Ottawa ankle rules suggest X-ray is indicated. Vital signs: HR 72, BP 122/76, RR 14, SpO2 100%, Temp 36.8°C. No medications. No deformity noted, but moderate swelling and tenderness over the lateral malleolus."
+  },
+  {
+    "id": "TC-023",
+    "esi_expected": 4,
+    "expected_diagnosis": "Acute otitis media",
+    "vignette": "4-year-old male brought in by mother with 2 days of right ear pain, pulling at the ear, fussiness, and fever. He had a cold last week that seemed to be improving. He attends daycare. Vital signs: HR 110, BP not taken, RR 22, SpO2 99%, Temp 38.5°C. No current medications. Otoscopic exam reveals erythematous, bulging right tympanic membrane with decreased mobility."
+  },
+  {
+    "id": "TC-024",
+    "esi_expected": 4,
+    "expected_diagnosis": "Uncomplicated urinary tract infection",
+    "vignette": "27-year-old female presents with 2 days of dysuria, urinary frequency, and urgency. She denies fever, flank pain, hematuria, or vaginal discharge. She has had one prior UTI last year. Vital signs: HR 74, BP 115/70, RR 14, SpO2 100%, Temp 37.0°C. No current medications. Urinalysis shows positive leukocyte esterase, positive nitrites."
+  },
+  {
+    "id": "TC-025",
+    "esi_expected": 4,
+    "expected_diagnosis": "Contact dermatitis",
+    "vignette": "40-year-old female gardener presents with an itchy, erythematous, vesicular rash on both forearms that developed 48 hours after clearing poison ivy from her yard. The rash is in linear streaks. She denies fever, respiratory symptoms, or spreading beyond the forearms. Vital signs: HR 70, BP 120/78, RR 14, SpO2 100%, Temp 36.8°C. No current medications."
+  },
+  {
+    "id": "TC-026",
+    "esi_expected": 4,
+    "expected_diagnosis": "Tension headache",
+    "vignette": "42-year-old male office worker presents with bilateral, non-pulsating, band-like headache for 2 days, rated 5/10. Associated with neck stiffness but no photophobia, phonophobia, nausea, or visual changes. He has been under significant work stress and sleeping poorly. Vital signs: HR 76, BP 128/80, RR 14, SpO2 100%, Temp 36.7°C. No current medications. Neurological exam is unremarkable."
+  },
+  {
+    "id": "TC-027",
+    "esi_expected": 4,
+    "expected_diagnosis": "Acute gastroenteritis",
+    "vignette": "30-year-old male presents with 24 hours of watery diarrhea (6 episodes), nausea, crampy abdominal pain, and one episode of vomiting. He ate at a food truck yesterday and two friends who ate the same food are also sick. He is tolerating sips of water. Vital signs: HR 88, BP 115/70, RR 14, SpO2 99%, Temp 37.6°C. No current medications."
+  },
+  {
+    "id": "TC-028",
+    "esi_expected": 4,
+    "expected_diagnosis": "Musculoskeletal low back pain",
+    "vignette": "50-year-old male presents with 5 days of low back pain after lifting heavy boxes at work. Pain is localized to the lumbar region, worsens with bending, and improves with rest. He denies radiating leg pain, numbness, weakness, bowel or bladder dysfunction, or fever. Vital signs: HR 74, BP 132/82, RR 14, SpO2 99%, Temp 36.8°C. Medications: none. Straight leg raise is negative bilaterally."
+  },
+  {
+    "id": "TC-029",
+    "esi_expected": 4,
+    "expected_diagnosis": "Allergic conjunctivitis",
+    "vignette": "28-year-old female presents with 3 days of bilateral eye redness, itching, and watery discharge. Symptoms are worse outdoors and in the morning. It is spring allergy season. She denies pain, vision changes, or photophobia. Vital signs: HR 68, BP 110/70, RR 14, SpO2 100%, Temp 36.7°C. Medications: cetirizine 10mg daily. Eyes show conjunctival injection, no corneal staining with fluorescein."
+  },
+  {
+    "id": "TC-030",
+    "esi_expected": 4,
+    "expected_diagnosis": "Mild asthma exacerbation",
+    "vignette": "16-year-old female with known mild persistent asthma presents with 2 days of increased wheezing, cough, and chest tightness following a viral URI. She has been using her rescue inhaler every 4-6 hours with partial relief. She is speaking in full sentences. Vital signs: HR 90, BP 110/70, RR 20, SpO2 95%, Temp 37.2°C. Medications: fluticasone 88mcg BID, albuterol PRN. Diffuse expiratory wheezes bilaterally."
+  },
+  {
+    "id": "TC-031",
+    "esi_expected": 4,
+    "expected_diagnosis": "Laceration requiring sutures",
+    "vignette": "35-year-old male presents with a 4cm linear laceration on his left forearm sustained while cutting vegetables 2 hours ago. Bleeding was controlled with direct pressure. He has full range of motion of the fingers and wrist, intact sensation, and brisk capillary refill. Vital signs: HR 72, BP 125/78, RR 14, SpO2 100%, Temp 36.8°C. No current medications. Tetanus was updated 3 years ago. Wound is clean with no visible foreign body."
+  },
+  {
+    "id": "TC-032",
+    "esi_expected": 4,
+    "expected_diagnosis": "Gout flare",
+    "vignette": "52-year-old male presents with 2 days of sudden onset severe pain, redness, and swelling in his right first metatarsophalangeal joint. He cannot tolerate even a bedsheet touching the toe. He had a similar episode last year. He recently started hydrochlorothiazide for hypertension. Vital signs: HR 80, BP 148/90, RR 14, SpO2 99%, Temp 37.4°C. Medications: hydrochlorothiazide 25mg, lisinopril 10mg."
+  },
+  {
+    "id": "TC-033",
+    "esi_expected": 4,
+    "expected_diagnosis": "Streptococcal pharyngitis",
+    "vignette": "12-year-old male presents with 2 days of sore throat, fever, headache, and mild abdominal pain. He denies cough or rhinorrhea. Centor score is 4 (fever, tonsillar exudates, tender anterior cervical lymphadenopathy, absence of cough). Vital signs: HR 95, BP 105/65, RR 16, SpO2 99%, Temp 38.8°C. No current medications."
+  },
+  {
+    "id": "TC-034",
+    "esi_expected": 4,
+    "expected_diagnosis": "Costochondritis",
+    "vignette": "38-year-old female presents with 4 days of sharp anterior chest wall pain that worsens with deep breathing and palpation. Pain is reproducible on palpation of the left 3rd and 4th costochondral junctions. She denies exertional component, radiation, dyspnea, or palpitations. She has been coughing from a recent cold. Vital signs: HR 75, BP 118/74, RR 15, SpO2 100%, Temp 36.9°C. No current medications."
+  },
+  {
+    "id": "TC-035",
+    "esi_expected": 4,
+    "expected_diagnosis": "Iron deficiency anemia",
+    "vignette": "29-year-old female presents with 3 weeks of progressive fatigue, exertional dyspnea, and lightheadedness when standing quickly. She reports heavy menstrual periods for the past 6 months. She has a vegetarian diet. Vital signs: HR 92, BP 108/65, RR 16, SpO2 98%, Temp 36.7°C. No current medications. Labs: hemoglobin 8.2 g/dL, WBC 6.5 x10^3/uL, platelets 385 x10^3/uL."
+  },
+  {
+    "id": "TC-036",
+    "esi_expected": 4,
+    "expected_diagnosis": "Corneal abrasion",
+    "vignette": "30-year-old male presents with acute onset right eye pain, tearing, and foreign body sensation after being poked in the eye by a tree branch while hiking 3 hours ago. He has photophobia and difficulty opening the eye. Visual acuity is 20/30 in the affected eye (baseline 20/20). Vital signs are normal. No current medications."
+  },
+  {
+    "id": "TC-037",
+    "esi_expected": 4,
+    "expected_diagnosis": "Migraine without aura",
+    "vignette": "26-year-old female with known migraines presents with 8 hours of unilateral left-sided throbbing headache, 7/10, with nausea, photophobia, and phonophobia. She ran out of her sumatriptan and tried ibuprofen without relief. This is consistent with her typical migraine pattern. Vital signs: HR 74, BP 118/72, RR 14, SpO2 100%, Temp 36.8°C. Medications: sumatriptan 50mg PRN (out of refills), topiramate 50mg daily. Neuro exam normal."
+  },
+  {
+    "id": "TC-038",
+    "esi_expected": 5,
+    "expected_diagnosis": "Medication refill request",
+    "vignette": "55-year-old male with well-controlled hypertension presents to the ED because his pharmacy is closed and he needs a refill of his amlodipine 5mg. He ran out yesterday and is asymptomatic. His last blood pressure at his PCP was 128/78. Vital signs: HR 72, BP 138/85, RR 14, SpO2 99%, Temp 36.7°C. Medications: amlodipine 5mg (requesting refill)."
+  },
+  {
+    "id": "TC-039",
+    "esi_expected": 5,
+    "expected_diagnosis": "Insect bite - uncomplicated",
+    "vignette": "22-year-old female presents with a single itchy, red, raised lesion on her left forearm that appeared yesterday. She was gardening and recalls feeling a sting. The area is 1.5cm, non-tender, with no streaking, warmth beyond the immediate area, or systemic symptoms. Vital signs are completely normal. No medications. No known allergies."
+  },
+  {
+    "id": "TC-040",
+    "esi_expected": 5,
+    "expected_diagnosis": "Suture removal",
+    "vignette": "45-year-old male presents for suture removal from a right forearm laceration that was repaired 10 days ago. The wound appears well-healed with no signs of infection — no erythema, drainage, or tenderness. He has had no complications since the repair. Vital signs are normal. No medications."
+  },
+  {
+    "id": "TC-041",
+    "esi_expected": 5,
+    "expected_diagnosis": "Prescription renewal - birth control",
+    "vignette": "24-year-old female presents requesting a bridge prescription for her oral contraceptive as she cannot get a PCP appointment for 2 weeks. She has been on the same pill for 3 years with no complications. No current health concerns. She denies headaches, leg swelling, or chest pain. Vital signs: HR 68, BP 112/68, RR 14, SpO2 100%, Temp 36.7°C."
+  },
+  {
+    "id": "TC-042",
+    "esi_expected": 5,
+    "expected_diagnosis": "Work/school physical exam clearance",
+    "vignette": "18-year-old male presents requesting medical clearance for a summer camp counselor position. He has no medical history, takes no medications, and has no current complaints. He had a normal physical exam with his PCP 2 months ago but lost the paperwork. Vital signs are completely normal."
+  },
+  {
+    "id": "TC-043",
+    "esi_expected": 3,
+    "expected_diagnosis": "Acute asthma exacerbation - moderate to severe",
+    "vignette": "10-year-old male with moderate persistent asthma brought in by parents with 6 hours of progressive wheezing, shortness of breath, and chest tightness. He used his rescue inhaler 4 times with minimal improvement. He is speaking in phrases, using accessory muscles. He had a URI last week. Vital signs: HR 125, BP 100/65, RR 32, SpO2 90%, Temp 37.3°C. Medications: fluticasone/salmeterol, montelukast, albuterol PRN."
+  },
+  {
+    "id": "TC-044",
+    "esi_expected": 2,
+    "expected_diagnosis": "Septic shock",
+    "vignette": "82-year-old male from a nursing facility presents with altered mental status, fever, and hypotension. He was found confused and minimally responsive by staff this morning. He has a history of recurrent UTIs, BPH, and indwelling Foley catheter. Vital signs: HR 125, BP 75/45, RR 26, SpO2 92%, Temp 39.8°C. Medications: tamsulosin 0.4mg, finasteride 5mg. Labs: WBC 24.0 x10^3/uL, lactate 5.2 mmol/L, creatinine 3.5 mg/dL, glucose 165 mg/dL, sodium 150 mEq/L."
+  },
+  {
+    "id": "TC-045",
+    "esi_expected": 3,
+    "expected_diagnosis": "Nephrolithiasis",
+    "vignette": "38-year-old male presents with sudden onset severe colicky left flank pain radiating to the groin for 3 hours. He is writhing in pain, unable to find a comfortable position. He has nausea and one episode of vomiting. He reports mild hematuria. No prior history of kidney stones. Vital signs: HR 100, BP 148/92, RR 18, SpO2 99%, Temp 37.1°C. No current medications. Labs: creatinine 1.0 mg/dL, WBC 9.5 x10^3/uL."
+  },
+  {
+    "id": "TC-046",
+    "esi_expected": 2,
+    "expected_diagnosis": "Acute GI bleed with hemodynamic instability",
+    "vignette": "64-year-old male on warfarin for atrial fibrillation presents with large-volume hematemesis (bright red blood) and syncope at home. His wife called EMS. He appears pale and diaphoretic. He has a history of cirrhosis and known esophageal varices. Vital signs: HR 130, BP 78/45, RR 24, SpO2 94%, Temp 36.5°C. Medications: warfarin 7.5mg, furosemide 40mg, propranolol 20mg BID. Labs: hemoglobin 6.2 g/dL, INR 3.8, platelets 85 x10^3/uL, creatinine 1.8 mg/dL."
+  },
+  {
+    "id": "TC-047",
+    "esi_expected": 4,
+    "expected_diagnosis": "Viral gastroenteritis in pediatric patient",
+    "vignette": "3-year-old female brought in by parents with 2 days of vomiting (4-5 times/day) and watery diarrhea (6 episodes/day). She is drinking small amounts of fluids and had 3 wet diapers today. Several children at her daycare have the same illness. She is playful between episodes. Vital signs: HR 110, BP not taken, RR 20, SpO2 100%, Temp 38.0°C. No medications. Mucous membranes are slightly dry but she has good skin turgor."
+  },
+  {
+    "id": "TC-048",
+    "esi_expected": 3,
+    "expected_diagnosis": "Ectopic pregnancy",
+    "vignette": "31-year-old female presents with 2 days of left lower quadrant pain and vaginal spotting. Her last menstrual period was 7 weeks ago. She has a history of one prior ectopic pregnancy. She reports mild dizziness when standing. Vital signs: HR 100, BP 105/65, RR 16, SpO2 99%, Temp 37.1°C. Medications: prenatal vitamins. Labs: hemoglobin 10.5 g/dL, beta-hCG 3500 mIU/mL. Pelvic exam shows left adnexal tenderness."
+  },
+  {
+    "id": "TC-049",
+    "esi_expected": 3,
+    "expected_diagnosis": "Pneumothorax - spontaneous",
+    "vignette": "21-year-old tall, thin male presents with sudden onset right-sided chest pain and dyspnea that started while at rest 2 hours ago. He has no trauma history. He is a smoker (1/2 pack/day for 3 years). Vital signs: HR 105, BP 120/75, RR 22, SpO2 93%, Temp 36.9°C. No current medications. Decreased breath sounds on the right side. Chest X-ray shows 30% right pneumothorax."
+  },
+  {
+    "id": "TC-050",
+    "esi_expected": 5,
+    "expected_diagnosis": "Travel health consultation",
+    "vignette": "35-year-old healthy female presents asking about travel vaccinations and malaria prophylaxis for an upcoming trip to sub-Saharan Africa in 4 weeks. She has no medical problems, takes no medications, and has no current symptoms. Her routine vaccinations are up to date. Vital signs are completely normal."
+  }
+]

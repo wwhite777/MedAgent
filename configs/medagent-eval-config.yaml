@@ -1,0 +1,29 @@
+# MedAgent — Evaluation configuration
+
+test_cases_path: "data/test_cases.json"
+
+metrics:
+  triage_accuracy:
+    target: 0.85
+    description: "ESI level matches expert annotation"
+  differential_top3:
+    target: 0.70
+    description: "Correct diagnosis in top-3 differentials"
+  tool_calling_accuracy:
+    target: 0.90
+    description: "Correct tool selected with valid arguments"
+  drug_interaction_detection:
+    target: 0.95
+    description: "All known interactions flagged"
+  report_completeness:
+    target: 0.80
+    description: "LLM-as-Judge on SOAP note structure"
+  e2e_latency_seconds:
+    target: 30
+    description: "Total pipeline time for standard case"
+
+evaluation:
+  num_cases: 50
+  parallel_workers: 5
+  timeout_per_case: 120
+  save_traces: true

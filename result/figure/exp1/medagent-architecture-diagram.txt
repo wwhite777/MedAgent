@@ -1,0 +1,54 @@
+MedAgent Architecture
+=====================
+
+    +---------------------+
+    |  Patient Vignette   |  (Input)
+    +---------------------+
+              |
+              v
+    +---------------------+       - - - - - - - - - - - - +
+    |   Triage Agent      |------>|   Human Review        |
+    +---------------------+  ESI  |   Checkpoint          |
+              |              1-2  + - - - - - - - - - - - -+
+              | ESI 3-5                    |
+              v                       Approved
+    +---------------------+                |
+    |  Literature Agent   |<---------------+
+    +---------------------+
+              |                  +-------------------------+
+              |                  | MedLlama RAG (MCP)      |<-->
+              v                  +-------------------------+
+    +---------------------+
+    |  Reasoning Agent    |
+    +---------------------+
+              |                  +-------------------------+
+              |                  | Drug Interaction -      |
+              |                  | RxNorm (MCP)            |<-->
+              |                  +-------------------------+
+              |
+              |                  +-------------------------+
+              |                  | Lab Interpreter (MCP)   |<-->
+              v                  +-------------------------+
+    +---------------------+
+    |   Report Agent      |
+    +---------------------+
+              |
+              v
+    +---------------------+
+    |  SOAP Note Output   |  (Output)
+    +---------------------+
+
+Legend:
+  [Blue]   Agent boxes        - Triage, Literature, Reasoning, Report
+  [Green]  MCP Server boxes   - MedLlama RAG, Drug Interaction, Lab Interpreter
+  [Orange] Human Review       - Checkpoint for ESI 1-2 cases
+  [Gray]   I/O                - Patient Vignette input, SOAP Note output
+
+Flow:
+  1. Patient Vignette enters Triage Agent
+  2. Triage classifies ESI level:
+     - ESI 1-2: routes to Human Review Checkpoint, then to Literature Agent
+     - ESI 3-5: routes directly to Literature Agent
+  3. Literature Agent queries MedLlama RAG (MCP) for evidence retrieval
+  4. Reasoning Agent uses Drug Interaction / RxNorm (MCP) and Lab Interpreter (MCP)
+  5. Report Agent generates final SOAP Note Output

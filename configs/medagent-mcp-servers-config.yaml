@@ -1,0 +1,21 @@
+# MedAgent — MCP server configuration
+
+servers:
+  medllama_rag:
+    transport: stdio
+    command: "python"
+    args: ["-m", "src.mcp_servers.medllama_rag.medagent-medllama-bridge"]
+    env:
+      MEDLLAMA_API_URL: "http://localhost:8090"
+
+  drug_interaction:
+    transport: stdio
+    command: "python"
+    args: ["-m", "src.mcp_servers.drug_interaction.medagent-rxnorm-serve"]
+
+  lab_interpreter:
+    transport: stdio
+    command: "python"
+    args: ["-m", "src.mcp_servers.lab_interpreter.medagent-lab-interpret"]
+    env:
+      LAB_RANGES_PATH: "data/lab_ranges.json"

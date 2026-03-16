@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="draw.io" modified="2026-03-16T00:00:00.000Z" agent="Claude" version="21.0.0" type="device">
+  <diagram id="medagent-architecture" name="MedAgent Architecture">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Patient Vignette Input (Gray) -->
+        <mxCell id="input" value="Patient Vignette" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;fontColor=#333333;fontSize=14;fontStyle=1;arcSize=40;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="30" width="200" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Triage Agent (Blue) -->
+        <mxCell id="triage" value="Triage Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontColor=#333333;fontSize=14;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="140" width="200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Input -> Triage -->
+        <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#666666;strokeWidth=2;" edge="1" source="input" target="triage" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Human Review (Orange) -->
+        <mxCell id="human_review" value="Human Review&#xa;Checkpoint" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D6B656;fontColor=#333333;fontSize=13;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="120" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Triage -> Human Review (ESI 1-2) -->
+        <mxCell id="e_human" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#D6B656;strokeWidth=2;dashed=1;" edge="1" source="triage" target="human_review" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label_esi12" value="ESI 1-2" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#B85C00;fontStyle=1;" vertex="1" connectable="0" parent="e_human">
+          <mxGeometry x="-0.1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Literature Agent (Blue) -->
+        <mxCell id="literature" value="Literature Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontColor=#333333;fontSize=14;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="280" width="200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Triage -> Literature (ESI 3-5) -->
+        <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6C8EBF;strokeWidth=2;" edge="1" source="triage" target="literature" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="label_esi35" value="ESI 3-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#336699;fontStyle=1;" vertex="1" connectable="0" parent="e2">
+          <mxGeometry x="0.2" relative="1" as="geometry">
+            <mxPoint x="-30" as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Arrow: Human Review -> Literature (after review) -->
+        <mxCell id="e_hr_lit" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#D6B656;strokeWidth=2;dashed=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="human_review" target="literature" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="610" y="310" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="label_approved" value="Approved" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=10;fontColor=#B85C00;fontStyle=2;" vertex="1" connectable="0" parent="e_hr_lit">
+          <mxGeometry x="-0.2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Reasoning Agent (Blue) -->
+        <mxCell id="reasoning" value="Reasoning Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontColor=#333333;fontSize=14;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="420" width="200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Literature -> Reasoning -->
+        <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6C8EBF;strokeWidth=2;" edge="1" source="literature" target="reasoning" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Report Agent (Blue) -->
+        <mxCell id="report" value="Report Agent" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontColor=#333333;fontSize=14;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="560" width="200" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Reasoning -> Report -->
+        <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6C8EBF;strokeWidth=2;" edge="1" source="reasoning" target="report" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- SOAP Note Output (Gray) -->
+        <mxCell id="output" value="SOAP Note Output" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;fontColor=#333333;fontSize=14;fontStyle=1;arcSize=40;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="690" width="200" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: Report -> Output -->
+        <mxCell id="e5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#666666;strokeWidth=2;" edge="1" source="report" target="output" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- MCP Server: MedLlama RAG (Green) -->
+        <mxCell id="mcp_rag" value="MedLlama RAG&#xa;(MCP)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#333333;fontSize=13;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="270" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: MCP RAG -> Literature -->
+        <mxCell id="e_mcp1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#82B366;strokeWidth=2;startArrow=classic;endArrow=classic;" edge="1" source="mcp_rag" target="literature" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- MCP Server: Drug Interaction (Green) -->
+        <mxCell id="mcp_drug" value="Drug Interaction&#xa;RxNorm (MCP)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#333333;fontSize=13;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="390" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: MCP Drug -> Reasoning -->
+        <mxCell id="e_mcp2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#82B366;strokeWidth=2;startArrow=classic;endArrow=classic;" edge="1" source="mcp_drug" target="reasoning" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- MCP Server: Lab Interpreter (Green) -->
+        <mxCell id="mcp_lab" value="Lab Interpreter&#xa;(MCP)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontColor=#333333;fontSize=13;fontStyle=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="460" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow: MCP Lab -> Reasoning -->
+        <mxCell id="e_mcp3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#82B366;strokeWidth=2;startArrow=classic;endArrow=classic;" edge="1" source="mcp_lab" target="reasoning" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Title -->
+        <mxCell id="title" value="MedAgent Architecture" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=20;fontStyle=1;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="170" y="-10" width="260" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend_bg" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FAFAFA;strokeColor=#CCCCCC;opacity=80;" vertex="1" parent="1">
+          <mxGeometry x="740" y="30" width="180" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="legend_title" value="Legend" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];fontSize=12;fontStyle=5;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="760" y="35" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_agent" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;" vertex="1" parent="1">
+          <mxGeometry x="760" y="62" width="20" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_agent_t" value="Agent" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="790" y="55" width="100" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_mcp" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;" vertex="1" parent="1">
+          <mxGeometry x="760" y="87" width="20" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_mcp_t" value="MCP Server" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="790" y="80" width="100" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_human" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFE6CC;strokeColor=#D6B656;" vertex="1" parent="1">
+          <mxGeometry x="760" y="112" width="20" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_human_t" value="Human Review" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="790" y="105" width="100" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_io" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="760" y="137" width="20" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg_io_t" value="I/O" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="790" y="130" width="100" height="25" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
