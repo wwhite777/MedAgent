@@ -8,12 +8,14 @@ workup.
 
 from __future__ import annotations
 
+import importlib
 import logging
 import os
 
 from langchain_core.messages import SystemMessage, HumanMessage
-from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field
+
+_llm_provider = importlib.import_module("src.agents.medagent-llm-provider")
 
 logger = logging.getLogger("medagent.agents.reasoning")
 
@@ -55,14 +57,6 @@ SYSTEM_PROMPT = (
 # ---------------------------------------------------------------------------
 # Agent function
 # ---------------------------------------------------------------------------
-def _get_llm() -> ChatOpenAI:
-    return ChatOpenAI(
-        model=os.getenv("MEDAGENT_MODEL", "gpt-4o-mini"),
-        temperature=0.2,
-        api_key=os.getenv("OPENAI_API_KEY"),
-    )
-
-
 def _format_clinical_context(state: dict) -> str:
     """Build a clinical context string from state for the reasoning prompt."""
     parts = []
@@ -103,7 +97,7 @@ async def run(state: dict) -> dict:
     """Generate differential diagnosis from accumulated clinical data."""
     context = _format_clinical_context(state)
 
-    llm = _get_llm().with_structured_output(ReasoningOutput)
+    llm = _llm_provider.get_llm(temperature=0.2).with_structured_output(ReasoningOutput)
 
     messages = [
         SystemMessage(content=SYSTEM_PROMPT),

@@ -119,107 +119,73 @@ def _make_graph_svg(active_node: str = "", completed: list[str] | None = None) -
     return svg
 
 
-# ---------------------------------------------------------------------------
-# Run the clinical workflow
-# ---------------------------------------------------------------------------
-async def _run_workflow(vignette: str, approve_emergency: bool):
-    """Execute the full clinical graph and yield incremental results."""
-    if not vignette.strip():
-        yield ("", "Please enter a clinical vignette.", "", "", "", "")
-        return
-
-    app = build_graph(checkpointer=None)  # Stateless for demo simplicity
-    input_state = {"patient_input": vignette}
-
-    completed_nodes = []
-    results = {
-        "triage": "Pending...",
-        "literature": "Pending...",
-        "reasoning": "Pending...",
-        "report": "Pending...",
-    }
-    status_log = []
-
-    try:
-        async for event in app.astream(input_state, stream_mode="updates"):
-            for node_name, node_output in event.items():
-                completed_nodes.append(node_name)
-                ts = time.strftime("%H:%M:%S")
-                status_log.append(f"[{ts}] {NODE_LABELS.get(node_name, node_name)} completed")
-
-                # Update results based on node
-                if node_name == "triage":
-                    esi = node_output.get("esi_level", "?")
-                    results["triage"] = (
-                        f"**ESI Level: {esi}**\n\n"
-                        f"**Chief Complaint:** {node_output.get('chief_complaint', 'N/A')}\n\n"
-                        f"**Reasoning:** {node_output.get('triage_reasoning', 'N/A')}\n\n"
-                        f"**Vitals:** {json.dumps(node_output.get('vitals', {}), indent=2)}\n\n"
-                        f"**Medications:** {', '.join(node_output.get('medications', []))}\n\n"
-                        f"**Labs:** {json.dumps(node_output.get('lab_results', []), indent=2)}"
-                    )
-                elif node_name == "literature":
-                    lit = node_output.get("literature_results", [])
-                    summary = node_output.get("literature_summary", "")
-                    lit_items = "\n".join(
-                        f"- **{r.get('title', 'N/A')}** (relevance: {r.get('relevance_score', 'N/A')})\n  {r.get('snippet', '')}"
-                        for r in lit
-                    )
-                    results["literature"] = f"**Evidence Summary:**\n{summary}\n\n**Sources:**\n{lit_items}"
-                elif node_name == "reasoning":
-                    ddx = node_output.get("differential_diagnosis", [])
-                    workup = node_output.get("recommended_workup", [])
-                    ddx_items = "\n".join(
-                        f"**{i+1}. {d.get('diagnosis', '?')}** — {d.get('probability', 0):.0%}\n"
-                        f"   {d.get('reasoning', '')}"
-                        for i, d in enumerate(ddx)
-                    )
-                    results["reasoning"] = (
-                        f"**Differential Diagnosis:**\n{ddx_items}\n\n"
-                        f"**Recommended Workup:** {', '.join(workup) if workup else 'None additional'}"
-                    )
-                elif node_name == "report":
-                    results["report"] = node_output.get("soap_note", "No report generated.")
-                elif node_name == "human_review":
-                    status_log.append(f"[{ts}] Human approval: {'Approved' if approve_emergency else 'Auto-approved for demo'}")
-
-                # Yield current state
-                svg = _make_graph_svg(active_node=node_name, completed=completed_nodes)
-                yield (
-                    svg,
-                    results["triage"],
-                    results["literature"],
-                    results["reasoning"],
-                    results["report"],
-                    "\n".join(status_log),
-                )
-
-    except Exception as exc:
-        logger.exception("Workflow error")
-        status_log.append(f"[ERROR] {exc}")
-        yield (
-            _make_graph_svg(),
-            results["triage"],
-            results["literature"],
-            results["reasoning"],
-            f"Error: {exc}",
-            "\n".join(status_log),
-        )
-
 
 def run_workflow_sync(vignette: str, approve_emergency: bool):
     """Synchronous wrapper for Gradio."""
-    loop = asyncio.new_event_loop()
+    if not vignette.strip():
+        return ("", "Please enter a clinical vignette.", "", "", "", "")
 
-    async def _collect():
-        last = None
-        async for result in _run_workflow(vignette, approve_emergency):
-            last = result
-        return last
+    import traceback
 
-    result = loop.run_until_complete(_collect())
-    loop.close()
-    return result if result else ("", "", "", "", "", "")
+    try:
+        app = build_graph(checkpointer=None)
+        input_state = {"patient_input": vignette}
+
+        # Run synchronously — Gradio handles threading
+        loop = asyncio.new_event_loop()
+        asyncio.set_event_loop(loop)
+        try:
+            final_state = loop.run_until_complete(app.ainvoke(input_state))
+        finally:
+            loop.close()
+
+        final = dict(final_state)
+
+        # Format triage output
+        esi = final.get("esi_level", "?")
+        triage_text = (
+            f"**ESI Level: {esi}**\n\n"
+            f"**Chief Complaint:** {final.get('chief_complaint', 'N/A')}\n\n"
+            f"**Reasoning:** {final.get('triage_reasoning', 'N/A')}\n\n"
+            f"**Vitals:** {json.dumps(final.get('vitals', {}), indent=2)}\n\n"
+            f"**Medications:** {', '.join(final.get('medications', []))}\n\n"
+            f"**Labs:** {json.dumps(final.get('lab_results', []), indent=2)}"
+        )
+
+        # Format literature output
+        lit = final.get("literature_results", [])
+        summary = final.get("literature_summary", "")
+        lit_items = "\n".join(
+            f"- **{r.get('title', 'N/A')}** (relevance: {r.get('relevance_score', 'N/A')})\n  {r.get('snippet', '')}"
+            for r in lit
+        )
+        literature_text = f"**Evidence Summary:**\n{summary}\n\n**Sources:**\n{lit_items}"
+
+        # Format reasoning output
+        ddx = final.get("differential_diagnosis", [])
+        workup = final.get("recommended_workup", [])
+        ddx_items = "\n".join(
+            f"**{i+1}. {d.get('diagnosis', '?')}** — {d.get('probability', 0):.0%}\n"
+            f"   {d.get('reasoning', '')}"
+            for i, d in enumerate(ddx)
+        )
+        reasoning_text = (
+            f"**Differential Diagnosis:**\n{ddx_items}\n\n"
+            f"**Recommended Workup:** {', '.join(workup) if workup else 'None additional'}"
+        )
+
+        # Report
+        report_text = final.get("soap_note", "No report generated.")
+
+        svg = _make_graph_svg(active_node="report", completed=["triage", "literature", "reasoning", "report"])
+        status = f"Workflow completed. ESI Level: {esi}"
+
+        return (svg, triage_text, literature_text, reasoning_text, report_text, status)
+
+    except Exception as exc:
+        logger.exception("Workflow error")
+        tb = traceback.format_exc()
+        return (_make_graph_svg(), f"Error: {exc}", "", "", "", f"ERROR:\n{tb}")
 
 
 # ---------------------------------------------------------------------------
@@ -228,11 +194,6 @@ def run_workflow_sync(vignette: str, approve_emergency: bool):
 def create_demo() -> gr.Blocks:
     with gr.Blocks(
         title="MedAgent — Multi-Agent Clinical Decision Support",
-        theme=gr.themes.Soft(),
-        css="""
-        .graph-container { text-align: center; padding: 10px; }
-        .status-box { font-family: monospace; font-size: 12px; }
-        """,
     ) as demo:
         gr.Markdown(
             "# MedAgent — Multi-Agent Clinical Decision Support\n"
@@ -310,5 +271,5 @@ if __name__ == "__main__":
     demo.launch(
         server_name="0.0.0.0",
         server_port=int(os.getenv("GRADIO_PORT", "7860")),
-        share=False,
+        share=True,
     )

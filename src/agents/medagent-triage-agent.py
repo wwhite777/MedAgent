@@ -14,7 +14,6 @@ from pathlib import Path
 
 import yaml
 from langchain_core.messages import SystemMessage, HumanMessage
-from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field
 
 logger = logging.getLogger("medagent.agents.triage")
@@ -58,12 +57,7 @@ class TriageOutput(BaseModel):
 # ---------------------------------------------------------------------------
 # Agent function
 # ---------------------------------------------------------------------------
-def _get_llm() -> ChatOpenAI:
-    return ChatOpenAI(
-        model=os.getenv("MEDAGENT_MODEL", "gpt-4o-mini"),
-        temperature=0.0,
-        api_key=os.getenv("OPENAI_API_KEY"),
-    )
+_llm_provider = importlib.import_module("src.agents.medagent-llm-provider")
 
 
 async def run(state: dict) -> dict:
@@ -75,7 +69,7 @@ async def run(state: dict) -> dict:
     if not patient_input:
         return {"error": "No patient input provided for triage"}
 
-    llm = _get_llm().with_structured_output(TriageOutput)
+    llm = _llm_provider.get_llm(temperature=0.0).with_structured_output(TriageOutput)
 
     messages = [
         SystemMessage(content=SYSTEM_PROMPT),

@@ -8,12 +8,14 @@ format.
 
 from __future__ import annotations
 
+import importlib
 import logging
 import os
 
 from langchain_core.messages import SystemMessage, HumanMessage
-from langchain_openai import ChatOpenAI
 from pydantic import BaseModel, Field
+
+_llm_provider = importlib.import_module("src.agents.medagent-llm-provider")
 
 logger = logging.getLogger("medagent.agents.report")
 
@@ -42,14 +44,6 @@ SYSTEM_PROMPT = (
 # ---------------------------------------------------------------------------
 # Agent function
 # ---------------------------------------------------------------------------
-def _get_llm() -> ChatOpenAI:
-    return ChatOpenAI(
-        model=os.getenv("MEDAGENT_MODEL", "gpt-4o-mini"),
-        temperature=0.1,
-        api_key=os.getenv("OPENAI_API_KEY"),
-    )
-
-
 def _format_full_context(state: dict) -> str:
     """Build complete clinical context for SOAP note generation."""
     parts = []
@@ -100,7 +94,7 @@ async def run(state: dict) -> dict:
     """Generate SOAP note from accumulated clinical data."""
     context = _format_full_context(state)
 
-    llm = _get_llm().with_structured_output(ReportOutput)
+    llm = _llm_provider.get_llm(temperature=0.1).with_structured_output(ReportOutput)
 
     messages = [
         SystemMessage(content=SYSTEM_PROMPT),
