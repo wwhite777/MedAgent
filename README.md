@@ -9,9 +9,9 @@ A multi-agent clinical decision support system built with **LangGraph** and **MC
 Patient Vignette
        │
        ▼
-┌─────────────┐     ESI 1-2      ┌──────────────┐
-│   Triage    │────────────────►  │ Human Review  │
-│   Agent     │                   │ (Checkpoint)  │
+┌─────────────┐     ESI 1-2       ┌──────────────┐
+│   Triage    │────────────────►  │ Human Review │
+│   Agent     │                   │ (Checkpoint) │
 │  (ESI 1-5)  │                   └──────┬───────┘
 └──────┬──────┘                          │
        │ ESI 3-5                         │
