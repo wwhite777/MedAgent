@@ -1,7 +1,7 @@
 # MedAgent — Multi-Agent Clinical Decision Support System
-<img width="1920" height="1555" alt="diagnosis" src="https://github.com/user-attachments/assets/54deec03-48c0-4d2b-8cfd-6def7574293c" />
-
+<img width="1920" height="1080" alt="image v2" src="https://github.com/user-attachments/assets/c6e6d1de-241f-4551-baa2-64d60248e2f7" />
 A multi-agent clinical decision support system built with **LangGraph** and **MCP** (Model Context Protocol). MedAgent orchestrates four specialized AI agents — triage, literature search, clinical reasoning, and report generation — to process clinical vignettes and produce structured SOAP notes with differential diagnoses.
+<img width="1920" height="1555" alt="diagnosis" src="https://github.com/user-attachments/assets/54deec03-48c0-4d2b-8cfd-6def7574293c" />
 
 ## Architecture
 
